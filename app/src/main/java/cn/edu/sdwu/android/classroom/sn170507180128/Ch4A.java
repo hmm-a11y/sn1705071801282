@@ -56,12 +56,12 @@ public class Ch4A extends AppCompatActivity implements View.OnFocusChangeListene
                 float x=motionEvent.getX();
                 float y=motionEvent.getY();
                 TextView textView=(TextView) findViewById(R.id.ch4_1_tv);
-                textView.setText("x:"+x+",y:"+y);
+                textView.setText("x:"+x+",y:"+y);//显示文本框的内容
                 return true;
             }
         });
     }
-
+//直接实现
     @Override
     public void onFocusChange(View view, boolean b) {
         //参数b代表是否获取焦点
