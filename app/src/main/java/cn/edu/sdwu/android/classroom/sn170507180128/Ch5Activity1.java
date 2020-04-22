@@ -3,7 +3,9 @@ package cn.edu.sdwu.android.classroom.sn170507180128;
 import android.app.DatePickerDialog;
 import android.app.Notification;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.provider.Settings;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -57,6 +59,11 @@ public class Ch5Activity1 extends AppCompatActivity {
         builder.setContentText("message");
         builder.setWhen(System.currentTimeMillis());
         builder.setSmallIcon(android.R.drawable.alert_dark_frame);//引用系统的资源
+
+        Intent intent=new Intent(this,Ch6Activity1.class);//点击通知之后，跳转界面
+        PendingIntent pendingintent=PendingIntent.getActivity(this,101,intent, PendingIntent.FLAG_CANCEL_CURRENT);//这个类代表代办的Intent
+        builder.setContentIntent(pendingintent);
+
         //调用build方法，完成构造
         Notification notification=builder.build();
         //使用NotificationManager,发送通知
